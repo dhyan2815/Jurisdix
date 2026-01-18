@@ -36,7 +36,7 @@ const AnalysisDashboard = ({ document }: AnalysisDashboardProps) => {
                 {document.document_id}
               </CardTitle>
               <p className="mt-1 text-sm text-muted-foreground">
-                {document.client_name} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
+                {document.client_name} • {document.client_email} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
               </p>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
