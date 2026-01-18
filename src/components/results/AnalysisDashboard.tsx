@@ -33,10 +33,10 @@ const AnalysisDashboard = ({ document }: AnalysisDashboardProps) => {
             <div>
               <CardTitle className="flex items-center gap-2">
                 <FileText className="h-5 w-5" />
-                {document.client_name}
+                {document.file_name || document.document_id}
               </CardTitle>
               <p className="mt-1 text-sm text-muted-foreground">
-                {document.client_email} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
+                {document.client_name} • {document.client_email} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
               </p>
             </div>
           </div>

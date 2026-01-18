@@ -94,6 +94,14 @@ function transformContractRow(row: ContractAnalysisRow): LegalDocument {
         }
     }
 
+    // Ensure risk_score is valid (between 0 and 10)
+    if (isNaN(risk_score) || risk_score === 0) {
+        console.warn('⚠️ Invalid risk_score, using default 5.0. Original risk_level:', row.risk_level);
+        risk_score = 5.0;
+    }
+
+    console.log('📊 Risk Score:', risk_score, 'from risk_level:', row.risk_level);
+
     const results: AnalysisResults = {
         executive_summary,
         risk_score,
@@ -203,6 +211,7 @@ function transformContractRow(row: ContractAnalysisRow): LegalDocument {
         id: row.id,
         document_id: documentId,  // Short ID format
         document_type: 'contract',
+        file_name: row.file_name || 'Unknown Document',
         client_name: row.client_name || 'Unknown',
         client_email: row.client_email || '',
         jurisdiction: row.jurisdiction,
@@ -248,6 +257,7 @@ function transformResearchRow(row: LegalResearchRow): LegalDocument {
         id: row.id.toString(),
         document_id: documentId,  // Short ID format
         document_type: 'case_law',
+        file_name: row.file_name || 'Unknown Document',
         client_name: row.client_name || 'Unknown',
         client_email: row.client_email || '',
         jurisdiction: row.jurisdiction,

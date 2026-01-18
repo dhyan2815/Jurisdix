@@ -47,7 +47,7 @@ const Index = () => {
       }
 
       // Show success message
-      toast.success('Document submitted successfully! Processing in background...');
+      toast.success('Document submitted successfully! Analysis will take 1-2 minutes. Check the History page for results.');
 
       // Redirect to History page
       // Supabase will handle storing the results and real-time updates

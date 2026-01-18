@@ -16,7 +16,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-import { ArrowLeft, RefreshCw } from 'lucide-react';
+import { ArrowLeft, RefreshCw, Info } from 'lucide-react';
 import { LegalDocument } from '@/types/legal';
 import { useDocuments } from '@/contexts/DocumentContext';
 import { toast } from 'sonner';
@@ -143,6 +143,23 @@ const History = () => {
               Refresh
             </Button>
           </div>
+
+          {/* Info Banner */}
+          {filteredDocuments.length === 0 && !loading && (
+            <Card className="border-blue-500/20 bg-blue-500/5">
+              <CardContent className="flex items-start gap-3 pt-6">
+                <Info className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-blue-900 dark:text-blue-100">
+                    Document analysis in progress
+                  </p>
+                  <p className="mt-1 text-sm text-blue-800 dark:text-blue-200">
+                    Submitted documents typically take 1-2 minutes to analyze. Your document will appear here automatically when the analysis is complete. You can refresh the page or wait for the real-time update.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {error && (
             <Card className="border-destructive">

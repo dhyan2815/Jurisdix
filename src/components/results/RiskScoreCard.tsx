@@ -7,9 +7,9 @@ interface RiskScoreCardProps {
 }
 
 const getRiskColor = (score: number) => {
-  if (score <= 3) return 'text-primary';
-  if (score <= 6) return 'text-chart-4';
-  return 'text-destructive';
+  if (score <= 3) return 'text-blue-600';
+  if (score <= 6) return 'text-yellow-600';
+  return 'text-red-600';
 };
 
 const getRiskLabel = (score: number) => {
@@ -19,12 +19,16 @@ const getRiskLabel = (score: number) => {
 };
 
 const getRiskBgColor = (score: number) => {
-  if (score <= 3) return 'bg-primary/10';
-  if (score <= 6) return 'bg-chart-4/10';
-  return 'bg-destructive/10';
+  if (score <= 3) return 'bg-blue-100';
+  if (score <= 6) return 'bg-yellow-100';
+  return 'bg-red-100';
 };
 
 const RiskScoreCard = ({ riskScore, confidenceScore }: RiskScoreCardProps) => {
+  // Debug logging
+  console.log('🎨 RiskScoreCard - riskScore:', riskScore, 'type:', typeof riskScore);
+  console.log('🎨 Progress bar width:', `${(riskScore / 10) * 100}%`);
+
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       <Card>
@@ -46,10 +50,10 @@ const RiskScoreCard = ({ riskScore, confidenceScore }: RiskScoreCardProps) => {
               <span>Low</span>
               <span>High</span>
             </div>
-            <div className="h-2 w-full rounded-full bg-border overflow-hidden">
+            <div className="h-2 w-full rounded-full bg-gray-200 overflow-hidden">
               <div
-                className={cn("h-full rounded-full transition-all", 
-                  riskScore <= 3 ? "bg-primary" : riskScore <= 6 ? "bg-chart-4" : "bg-destructive"
+                className={cn("h-full rounded-full transition-all",
+                  riskScore <= 3 ? "bg-blue-500" : riskScore <= 6 ? "bg-yellow-500" : "bg-red-500"
                 )}
                 style={{ width: `${(riskScore / 10) * 100}%` }}
               />
@@ -72,9 +76,9 @@ const RiskScoreCard = ({ riskScore, confidenceScore }: RiskScoreCardProps) => {
             Analysis reliability based on document quality and completeness
           </p>
           <div className="mt-4">
-            <div className="h-2 w-full rounded-full bg-border overflow-hidden">
+            <div className="h-2 w-full rounded-full bg-gray-200 overflow-hidden">
               <div
-                className="h-full rounded-full bg-primary transition-all"
+                className="h-full rounded-full bg-blue-500 transition-all"
                 style={{ width: `${confidenceScore * 100}%` }}
               />
             </div>

@@ -23,6 +23,7 @@ export const TABLES = {
 // Type definitions for database tables
 export interface ContractAnalysisRow {
     id: string;
+    file_name: string | null;
     client_name: string | null;
     client_email: string | null;
     document_type: string | null;
@@ -40,6 +41,7 @@ export interface ContractAnalysisRow {
 
 export interface LegalResearchRow {
     id: number;
+    file_name: string | null;
     client_name: string | null;
     client_email: string | null;
     document_type: string | null;
