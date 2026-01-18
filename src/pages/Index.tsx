@@ -69,15 +69,18 @@ const Index = () => {
       <main className="container py-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-foreground">Legal Research Analysis</h1>
+            <h1 className="text-3xl font-bold text-foreground">Legal Research & Contract Analysis</h1>
             <p className="mt-2 text-muted-foreground">
-              Upload a legal document for AI-powered analysis, risk assessment, and legal research
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Results will appear in History once processing completes
+              Upload a legal document for AI-powered analysis, risk assessment, contract analysis, and legal research.
             </p>
           </div>
           <DocumentForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
+          <div className="mt-8 rounded-lg border border-blue-100 bg-blue-50 p-4 text-center dark:border-blue-900/30 dark:bg-blue-900/20">
+            <p className="text-sm text-blue-800 dark:text-blue-300">
+              <span className="mr-2 font-semibold">Note:</span>
+              Results will appear in History once processing completes.
+            </p>
+          </div>
         </div>
       </main>
     </div>

@@ -48,8 +48,7 @@ const DocumentForm = ({ onSubmit, isSubmitting }: DocumentFormProps) => {
     onSubmit(formData);
   };
 
-  const isValid = formData.document_id &&
-    formData.client_name &&
+  const isValid = formData.client_name &&
     formData.client_email &&
     formData.analysis_types.length > 0 &&
     (formData.file || formData.file_url);
@@ -65,13 +64,12 @@ const DocumentForm = ({ onSubmit, isSubmitting }: DocumentFormProps) => {
         <CardContent className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
-              <Label htmlFor="document_id">Document ID *</Label>
+              <Label htmlFor="document_id">Document ID (Optional)</Label>
               <Input
                 id="document_id"
                 placeholder="DOC-2024-001"
                 value={formData.document_id}
                 onChange={(e) => setFormData(prev => ({ ...prev, document_id: e.target.value }))}
-                required
               />
             </div>
             <div className="space-y-2">
