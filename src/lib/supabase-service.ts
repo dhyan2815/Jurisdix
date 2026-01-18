@@ -184,9 +184,24 @@ function transformContractRow(row: ContractAnalysisRow): LegalDocument {
 
     console.log('✅ Transformed contract results:', results);
 
+    // Generate a short, unique document ID
+    const documentId = (() => {
+        const clientPrefix = (row.client_name || 'DOC')
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase())
+            .join('')
+            .slice(0, 3);
+
+        const date = row.created_at ? new Date(row.created_at) : new Date();
+        const dateStr = date.toISOString().split('T')[0].replace(/-/g, '');
+        const timeStr = date.toTimeString().split(':').slice(0, 2).join('');
+
+        return `${clientPrefix}-${dateStr}-${timeStr}`;
+    })();
+
     return {
         id: row.id,
-        document_id: row.id,
+        document_id: documentId,  // Short ID format
         document_type: 'contract',
         client_name: row.client_name || 'Unknown',
         client_email: row.client_email || '',
@@ -214,9 +229,24 @@ function transformResearchRow(row: LegalResearchRow): LegalDocument {
         processing_time_seconds: 0,
     };
 
+    // Generate a short, unique document ID
+    const documentId = (() => {
+        const clientPrefix = (row.client_name || 'RES')
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase())
+            .join('')
+            .slice(0, 3);
+
+        const date = row.created_at ? new Date(row.created_at) : new Date();
+        const dateStr = date.toISOString().split('T')[0].replace(/-/g, '');
+        const timeStr = date.toTimeString().split(':').slice(0, 2).join('');
+
+        return `${clientPrefix}-${dateStr}-${timeStr}`;
+    })();
+
     return {
         id: row.id.toString(),
-        document_id: row.id.toString(),
+        document_id: documentId,  // Short ID format
         document_type: 'case_law',
         client_name: row.client_name || 'Unknown',
         client_email: row.client_email || '',

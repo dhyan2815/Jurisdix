@@ -1,4 +1,4 @@
-import { Clock, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LegalDocument } from '@/types/legal';
 import RiskScoreCard from './RiskScoreCard';
@@ -33,15 +33,11 @@ const AnalysisDashboard = ({ document }: AnalysisDashboardProps) => {
             <div>
               <CardTitle className="flex items-center gap-2">
                 <FileText className="h-5 w-5" />
-                {document.document_id}
+                {document.client_name}
               </CardTitle>
               <p className="mt-1 text-sm text-muted-foreground">
-                {document.client_name} • {document.client_email} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
+                {document.client_email} • {document.document_type === 'contract' ? 'Contract' : 'Case Law'}
               </p>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Clock className="h-4 w-4" />
-              Processed in {results.processing_time_seconds.toFixed(1)}s
             </div>
           </div>
         </CardHeader>
