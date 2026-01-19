@@ -18,7 +18,7 @@ const Header = () => {
             <Scale className="h-5 w-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg font-semibold text-foreground">Contract & Case Law Resercher</span>
+            <span className="text-lg font-semibold text-foreground">Contract & Case Law Researcher</span>
             <span className="text-xs text-muted-foreground">AI Legal Research & Contract Analysis</span>
           </div>
         </Link>
