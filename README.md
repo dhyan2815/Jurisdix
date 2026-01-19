@@ -1,8 +1,8 @@
-# Jurisdix
+# Contract & Case Law Resercher
 
 > AI-Powered Legal Document Analysis & Research Platform
 
-Jurisdix is an intelligent legal automation platform that combines AI-powered document analysis with real-time legal research capabilities. Built for law firms and legal professionals, it streamlines contract review, risk assessment, and case law research through advanced natural language processing.
+Contract & Case Law Resercher is an intelligent legal automation platform that combines AI-powered document analysis with real-time legal research capabilities. Built for law firms and legal professionals, it streamlines contract review, risk assessment, and case law research through advanced natural language processing.
 
 ---
 
@@ -159,7 +159,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Dhyan** - [@dhyan2815](https://github.com/dhyan2815)
 
-**Project Link**: [https://github.com/dhyan2815/Jurisdix](https://github.com/dhyan2815/Jurisdix)
+**Project Link**: [https://github.com/dhyan2815/Contract-Case-Law-Researcher](https://github.com/dhyan2815/Contract-Case-Law-Researcher)
 
 ---
 
