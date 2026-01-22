@@ -1,4 +1,4 @@
-# Contract & Case Law Researcher
+# Legal Research & Contract Analysis
 
 > AI-Powered Legal Document Analysis & Research Platform
 
